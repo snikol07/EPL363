@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JQuery submit form example</title>
+	<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+</head>
+<body>
+	<div id="divForm">
+		<input id="input" type="text" placeholder="Type something" />
+		<button id="button" onclick="$('#divForm').submit();">click</button>
+	</div>
+	<script>
+		$("#divForm").submit(function(event) {
+			var val = $("input", this)[0].value;
+			// Here could be an AJAX request
+			alert("Div is submitted with value = " + val);
+		});
+		$("#input").keypress(function(event) {
+		    if (event.which == 13) {
+		        event.preventDefault();
+		        $("#divForm").submit();
+		    }
+		});
+	</script>
+</body>
+</html>

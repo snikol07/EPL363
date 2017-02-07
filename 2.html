@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JQuery submit form example</title>
+	<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+</head>
+<body>
+	<form id="form" action="javascript:alert('Form submitted!');">
+		<input type="text" placeholder="Type any text"/>
+		<input type="submit" value="Submit" />
+	</form>
+	<script>
+		$("form:first").submit(function(event) {
+			var inps = $("input[type=text]", this);
+			if (inps[0].value < 0)
+				alert("Negative");
+			else if (inps[0].value > 0)
+				alert("Positive");
+			else if (inps[0].value.length > 0 && // We need this check to forbid empty string which is treated as zero
+				inps[0].value == 0)
+				alert("Zero");
+			else {
+				alert("Not a number");
+				event.preventDefault(); // Form won't be submitted
+			}
+		});
+	</script>
+</body>
+</html>

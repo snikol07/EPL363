@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JQuery submit form example</title>
+	<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+</head>
+<body>
+	<form id="form" action="javascript:alert('Form submitted!');">
+		<input type="text" placeholder="Type any text"/>
+		<input type="submit" value="Submit" />
+	</form>
+	<script>
+		$("form:first").submit(function(event) {
+			var inps = $("input[type=text]", this);
+			return inps[0].value > 0; // Form will be submitted only if the value is greater than 0
+		});
+	</script>
+</body>
+</html>
